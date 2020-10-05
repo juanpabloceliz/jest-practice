@@ -1,0 +1,21 @@
+{
+  "name": "jest-practice",
+  "version": "1.0.0",
+  "description": "This is a simple practice of unit testing with Jest.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "jest",
+    "test",
+    "unit testing"
+  ],
+  "author": "Juan Pablo Celiz <juanpablo.celiz@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-jest": "^26.3.0",
+    "babel-polyfill": "^6.26.0",
+    "jest": "^26.4.2"
+  }
+}
