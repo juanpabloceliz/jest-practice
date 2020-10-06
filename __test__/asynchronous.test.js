@@ -20,7 +20,7 @@ describe("Testing a callback", () => {
 })
 
 describe("Testing a promise", () => {
-  // This is our promise, getting data from Rick&Morty API.
+  // This is our promise, getting data from Star Wars API.
 
   const getData = () => {
     return axios.get("https://swapi.dev/api/people/1/").then(({ data }) => data)
@@ -28,9 +28,28 @@ describe("Testing a promise", () => {
 
   test("Testing with done function for promise", (done) => {
     getData().then((data) => {
-      console.log
-      expect(data.name).toMatch(/Luke Skywalker/)
+      expect(data.name).toEqual("Luke Skywalker")
       done()
     })
+  })
+
+  // In case if we want to use ASYNC and AWAIT, we must use the async in the second param and await at the final of promise.
+
+  test("Testing with done function for promise", async () => {
+    await getData().then((data) => {
+      expect(data.name).toEqual("Luke Skywalker")
+    })
+  })
+
+  // The other way to test promises is with RESOLVES and REJECTS.
+
+  test("Testing other promise with resolves and reject", () => {
+    expect(Promise.resolve("It´s ok")).resolves.toEqual("It´s ok")
+    expect(Promise.reject("It´s wrong")).rejects.toEqual("It´s wrong")
+  })
+
+  test("Testing the same promise with async/await in resolves and reject", async () => {
+    await expect(Promise.resolve("It´s ok")).resolves.toEqual("It´s ok")
+    await expect(Promise.reject("It´s wrong")).rejects.toEqual("It´s wrong")
   })
 })
